@@ -1,5 +1,5 @@
 module.exports = app => {
-    const customers = require("../controllers/customer.controller.js");
+    const customers = require("../controllers/customers.controllers.js");
   
     // Create a new Customer
     app.post("/customers", customers.create);
@@ -12,5 +12,5 @@ module.exports = app => {
   
     // Delete a Customer with customerId
     app.delete("/customers/:customerId", customers.delete);
-    
+
   };

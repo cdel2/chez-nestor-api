@@ -1,4 +1,4 @@
-const Customer = require("../models/customers.model.js");
+const Customer = require("../models/customers.models.js");
 
 // Create and Save a new Customer
 exports.create = (req, res) => {
@@ -10,12 +10,11 @@ exports.create = (req, res) => {
   }
 
   const customer = new Customer({
-    firstName = req.body.firstName,
-    lastName = req.body.lastName,
-    email = req.body.email,
-    phone = req.body.phone,
-    birthDate = req.body.birthDate,
-    nationality = req.body.nationality
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    phone: req.body.phone,
+    birthDate: req.body.birthDate,
+    nationality: req.body.nationality
   });
 
 

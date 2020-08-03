@@ -1,0 +1,30 @@
+{
+  "name": "chez-nestor-api",
+  "version": "1.0.0",
+  "description": "Restful CRUD API using NodeJS, Express and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdel2/chez-nestor-api.git"
+  },
+  "keywords": [
+    "restapi",
+    "nodejs",
+    "mysql",
+    "express"
+  ],
+  "author": "charlotte delfosse <cdelfossecsi@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdel2/chez-nestor-api/issues"
+  },
+  "homepage": "https://github.com/cdel2/chez-nestor-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}

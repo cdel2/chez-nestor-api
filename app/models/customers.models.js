@@ -4,7 +4,6 @@ const sql = require("./db.js");
 const Customer = function(customer) {
   this.firstName = customer.firstName;
   this.lastName = customer.lastName;
-  this.email = customer.email;
   this.phone = customer.phone;
   this.birthDate = customer.birthDate;
   this.nationality = customer.nationality;
@@ -91,3 +90,5 @@ Customer.remove = (id, result) => {
     result(null, res);
   });
 };
+
+module.exports = Customer;

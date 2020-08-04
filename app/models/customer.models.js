@@ -12,7 +12,7 @@ const Customer = function(customer) {
 
 // create
 Customer.create = (newCustomer, result) => {
-  sql.query("INSERT INTO customers SET ?", newCustomer, (err, res) => {
+  sql.query("INSERT INTO customer SET ?", newCustomer, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -27,7 +27,7 @@ Customer.create = (newCustomer, result) => {
 
 // read
 Customer.findById = (customerId, result) => {
-  sql.query(`SELECT * FROM customers WHERE id = ${customerId}`, (err, res) => {
+  sql.query(`SELECT * FROM customer WHERE id = ${customerId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -49,7 +49,7 @@ Customer.findById = (customerId, result) => {
 // update
 Customer.updateById = (id, customer, result) => {
   sql.query(
-    "UPDATE customers SET firstName = ?, lastName = ?, phone = ?, birthDate = ?, nationality = ? WHERE id = ?",
+    "UPDATE customer SET firstName = ?, lastName = ?, phone = ?, birthDate = ?, nationality = ? WHERE id = ?",
     [customer.firstName, customer.lastName, customer.phone, customer.birthDate, customer.nationality, id],
     (err, res) => {
       if (err) {
@@ -73,7 +73,7 @@ Customer.updateById = (id, customer, result) => {
 
 // delete
 Customer.remove = (id, result) => {
-  sql.query("DELETE FROM customers WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM customer WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

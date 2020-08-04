@@ -12,6 +12,7 @@ exports.create = (req, res) => {
   const customer = new Customer({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
+    email: req.body.email,
     phone: req.body.phone,
     birthDate: req.body.birthDate,
     nationality: req.body.nationality

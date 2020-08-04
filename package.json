@@ -4,7 +4,7 @@
   "description": "Restful CRUD API using NodeJS, Express and MySQL",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,19 @@
   },
   "homepage": "https://github.com/cdel2/chez-nestor-api#readme",
   "dependencies": {
+    "@databases/mysql-test": "^2.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "jest": "^26.2.2",
+    "mysql": "^2.18.1",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "globalSetup": "<rootDir>/node_modules/@databases/mysql-test/jest/globalSetup.js",
+    "globalTeardown": "<rootDir>/node_modules/@databases/mysql-test/jest/globalTeardown.js"
   }
 }

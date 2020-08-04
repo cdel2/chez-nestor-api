@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
 // include all routes
 require("./app/routes/customer.routes.js")(app);
 require("./app/routes/apartment.routes.js")(app);
+require("./app/routes/room.routes.js")(app);
+
 
 // set port, listen for requests
 app.listen(3000, () => {

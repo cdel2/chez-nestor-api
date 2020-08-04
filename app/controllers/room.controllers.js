@@ -12,7 +12,9 @@ exports.create = (req, res) => {
   const room = new Room({
     num : req.body.num,
     area : req.body.area,
-    price : req.body.price
+    price : req.body.price,
+    idApartment : req.body.idApartment, 
+    idCustomer : req.body.idCustomer
   });
 
 
@@ -24,6 +26,23 @@ exports.create = (req, res) => {
           err.message || "Some error occurred while creating the room."
       });
     else res.send(data);
+  });
+};
+
+// Find all rooms of given apartment
+exports.findAll = (req, res) => {
+  Room.findAllByApartmentId(req.params.apartmentId, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Room with id ${req.params.roomId}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Room with id " + req.params.roomId
+        });
+      }
+    } else res.send(data);
   });
 };
 

@@ -8,7 +8,6 @@ const Customer = function(customer) {
   this.phone = customer.phone;
   this.birthDate = customer.birthDate;
   this.nationality = customer.nationality;
-  this.idRoom = customer.idRoom;
 };
 
 
@@ -51,8 +50,8 @@ Customer.findById = (customerId, result) => {
 // update
 Customer.updateById = (id, customer, result) => {
   sql.query(
-    "UPDATE customer SET firstName = ?, lastName = ?, email = ?, phone = ?, birthDate = ?, nationality = ?, idRoom = ? WHERE id = ?",
-    [customer.firstName, customer.lastName, customer.email, customer.phone, customer.birthDate, customer.nationality, customer.idRoom, id],
+    "UPDATE customer SET firstName = ?, lastName = ?, email = ?, phone = ?, birthDate = ?, nationality = ?, WHERE id = ?",
+    [customer.firstName, customer.lastName, customer.email, customer.phone, customer.birthDate, customer.nationality, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

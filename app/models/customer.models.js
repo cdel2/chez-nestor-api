@@ -52,7 +52,7 @@ Customer.findById = (customerId, result) => {
 Customer.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE customer SET firstName = ?, lastName = ?, email = ?, phone = ?, birthDate = ?, nationality = ?, idRoom = ? WHERE id = ?",
-    [customer.firstName, customer.lastName, customer.email, customer.phone, customer.birthDate, customer.idRoom, customer.nationality, id],
+    [customer.firstName, customer.lastName, customer.email, customer.phone, customer.birthDate, customer.nationality, customer.idRoom, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

@@ -15,7 +15,8 @@ exports.create = (req, res) => {
     email: req.body.email,
     phone: req.body.phone,
     birthDate: req.body.birthDate,
-    nationality: req.body.nationality
+    nationality: req.body.nationality,
+    idRoom: req.body.idRoom
   });
 
 

@@ -27,7 +27,7 @@ Apartment.create = (newApartment, result) => {
 
 // read
 Apartment.findById = (apartmentId, result) => {
-  sql.query(`SELECT * FROM apartment WHERE id = ${apartmentId}`, (err, res) => {
+  sql.query(`SELECT * FROM apartment WHERE apartmentId = ${apartmentId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

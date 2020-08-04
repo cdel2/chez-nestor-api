@@ -3,6 +3,10 @@ module.exports = app => {
 
     // Create a new room
     app.post("/rooms", rooms.create);
+
+    // Retrieve all rooms of given apartment with apartmentId
+    app.get("/rooms/apartment/:apartmentId", rooms.findAll);
+
   
     // Retrieve a single room with roomId
     app.get("/rooms/:roomId", rooms.findOne);

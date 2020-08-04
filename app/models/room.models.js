@@ -5,6 +5,8 @@ const Room = function(room) {
   this.num = room.num;
   this.area = room.area;
   this.price = room.price;
+  this.idApartment = room.idApartment;
+  this.idCustomer = room.idCustomer;
 };
 
 
@@ -22,8 +24,28 @@ Room.create = (newRoom, result) => {
   });
 };
 
+// read all of given apartment
+Room.findAllByApartmentId = (idApartment, result) => {
+  sql.query(`SELECT * FROM room WHERE idApartment = ${idApartment}`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
 
-// read
+    if (res.length) {
+      console.log("Found rooms : ", res);
+      result(null, res);
+      return;
+    }
+
+    // room is not found
+    result({ kind: "not_found" }, null);
+  });
+};
+
+
+// read one
 Room.findById = (roomId, result) => {
   sql.query(`SELECT * FROM room WHERE id = ${roomId}`, (err, res) => {
     if (err) {
@@ -47,8 +69,8 @@ Room.findById = (roomId, result) => {
 // update
 Room.updateById = (id, room, result) => {
   sql.query(
-    "UPDATE room SET num = ?, area = ?, price = ? WHERE id = ?",
-    [room.num, room.area, room.price, id],
+    "UPDATE room SET num = ?, area = ?, price = ?, idApartment = ?, idCustomer = ? WHERE id = ?",
+    [room.num, room.area, room.price, room.idApartment, room.idCustomer, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
